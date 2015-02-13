@@ -50,6 +50,11 @@ class ListTest: XCTestCase {
         XCTAssert(self.data.count == 0, "Item wasn't removed by using pop")
     }
     
+    func testStackEmptyList() {
+        XCTAssert(self.data.peak() == nil, "Peaking an empty list returned an element.")
+        XCTAssert(self.data.pop() == nil, "Pop an empty list returned an element.")
+    }
+    
     func testEnqueue() {
         self.data.enqueue("Item 1")
         XCTAssert(self.data.count == 1, "Enqueue didn't add item at the end of the queue")
@@ -62,6 +67,10 @@ class ListTest: XCTestCase {
         XCTAssert(self.data.dequeue() == "Item 1", "Front of queue doesn't equal 'Item 1'")
         XCTAssert(self.data.dequeue() == "Item 2", "Front of queue doesn't equal 'Item 2'")
         XCTAssert(self.data.isEmpty, "Queue isn't empty")
+    }
+    
+    func testDequeueEmptyList() {
+        XCTAssert(self.data.dequeue() == nil, "Dequeue'ing an empty list returned an element.")
     }
 
 }
