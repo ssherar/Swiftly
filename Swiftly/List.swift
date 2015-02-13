@@ -28,15 +28,16 @@ public class List<T> {
     }
     
     public func peak() -> T? {
-        /*if self.count == 0 {
+        if self.isEmpty {
             return nil
-        }*/
-        assert(self.isEmpty == false, "No elements in data structure")
+        }
         return self.data[self.count - 1]
     }
     
     public func pop() -> T? {
-        assert(self.isEmpty == false, "No elements in data structure")
+        if self.isEmpty {
+            return nil
+        }
         return self.data.removeLast()
     }
     
@@ -45,7 +46,9 @@ public class List<T> {
     }
     
     public func dequeue() -> T? {
-        assert(self.isEmpty == false, "No elements in data structure")
+        if self.isEmpty {
+            return nil
+        }
         return self.data.removeAtIndex(0)
     }
     
